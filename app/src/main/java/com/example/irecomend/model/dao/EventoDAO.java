@@ -9,6 +9,10 @@ public class EventoDAO {
     //private Connection conexao;
     private String query;
 
+    public EventoDAO(){
+        this.tabela = "EVENTO";
+    }
+
     public boolean inserirEvento(Evento evento){
 
     }
@@ -26,6 +30,9 @@ public class EventoDAO {
     }
 
     public Evento selecionaEventoById( int id){
+
+    }
+    public void criaTabela(){
 
     }
 }
