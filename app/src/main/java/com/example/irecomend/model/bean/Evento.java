@@ -3,7 +3,7 @@ package com.example.irecomend.model.bean;
 import java.util.Date;
 
 public class Evento {
-    private int id;
+    private int idEvento;
     private String nome;
     private Date dataHora;
     private float preco;
@@ -13,7 +13,8 @@ public class Evento {
     private String bairro;
     private String cidade;
     private String estado;
-    private String caminhoImagem;
+    private String latitude;
+    private String longitude;
 
     public Evento(String nome, Date dataHora, float preco, String rua, String cep, String numero, String bairro, String cidade, String estado, String caminhoImagem) {
         this.setNome(nome);
@@ -25,17 +26,30 @@ public class Evento {
         this.setBairro(bairro);
         this.setCidade(cidade);
         this.setEstado(estado);
-        this.setCaminhoImagem(caminhoImagem);
+    }
+    public int getIdEvento() {
+        return idEvento;
     }
 
-    public int getId() {
-        return id;
+    public void setIdEvento(int idEvento) {
+        this.idEvento = idEvento;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getLatitude() {
+        return latitude;
     }
 
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
     public String getNome() {
         return nome;
     }
@@ -108,11 +122,4 @@ public class Evento {
         this.estado = estado;
     }
 
-    public String getCaminhoImagem() {
-        return caminhoImagem;
-    }
-
-    public void setCaminhoImagem(String caminhoImagem) {
-        this.caminhoImagem = caminhoImagem;
-    }
 }

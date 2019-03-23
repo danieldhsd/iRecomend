@@ -13,26 +13,26 @@ public class EventoDAO {
         this.tabela = "EVENTO";
     }
 
-    public boolean inserirEvento(Evento evento){
-
-    }
-
-    public boolean atualizarEvento(Evento evento){
-
-    }
-
-    public boolean deletarEvento(Evento evento){
-
-    }
-
-    public ArrayList<Evento> selecionaTodosEventos(){
-
-    }
-
-    public Evento selecionaEventoById( int id){
-
-    }
-    public void criaTabela(){
-
-    }
+//    public boolean inserirEvento(Evento evento){
+//
+//    }
+//
+//    public boolean atualizarEvento(Evento evento){
+//
+//    }
+//
+//    public boolean deletarEvento(Evento evento){
+//
+//    }
+//
+//    public ArrayList<Evento> selecionaTodosEventos(){
+//
+//    }
+//
+//    public Evento selecionaEventoById( int id){
+//
+//    }
+//    public void criaTabela(){
+//
+//    }
 }
