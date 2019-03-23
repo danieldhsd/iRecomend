@@ -5,27 +5,33 @@ import java.util.Date;
 public class Evento {
     private int idEvento;
     private String nome;
-    private Date dataHora;
+    private String dataHora;
     private float preco;
-    private String rua;
+    private String endereco;
     private String cep;
     private String numero;
     private String bairro;
     private String cidade;
     private String estado;
+    private String pais;
     private String latitude;
     private String longitude;
+    private int likes;
+    private int deslikes;
 
-    public Evento(String nome, Date dataHora, float preco, String rua, String cep, String numero, String bairro, String cidade, String estado, String caminhoImagem) {
+    public Evento(String nome, String dataHora, float preco, String endereco, String cep, String numero, String bairro, String cidade, String estado, String pais) {
         this.setNome(nome);
         this.setDataHora(dataHora);
         this.setPreco(preco);
-        this.setRua(rua);
+        this.setEndereco(endereco);
         this.setCep(cep);
         this.setNumero(numero);
         this.setBairro(bairro);
         this.setCidade(cidade);
         this.setEstado(estado);
+        this.setPais(pais);
+        this.setLikes(0);
+        this.setDeslikes(0);
     }
     public int getIdEvento() {
         return idEvento;
@@ -58,11 +64,11 @@ public class Evento {
         this.nome = nome;
     }
 
-    public Date getDataHora() {
+    public String getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(Date dataHora) {
+    public void setDataHora(String dataHora) {
         this.dataHora = dataHora;
     }
 
@@ -74,12 +80,12 @@ public class Evento {
         this.preco = preco;
     }
 
-    public String getRua() {
-        return rua;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getCep() {
@@ -122,4 +128,27 @@ public class Evento {
         this.estado = estado;
     }
 
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getDeslikes() {
+        return deslikes;
+    }
+
+    public void setDeslikes(int deslikes) {
+        this.deslikes = deslikes;
+    }
 }
