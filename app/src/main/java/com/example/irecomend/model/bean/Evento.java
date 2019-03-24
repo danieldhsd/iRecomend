@@ -9,7 +9,7 @@ public class Evento {
     private float preco;
     private String endereco;
     private String cep;
-    private String numero;
+    private int numero;
     private String bairro;
     private String cidade;
     private String estado;
@@ -19,7 +19,7 @@ public class Evento {
     private int likes;
     private int deslikes;
 
-    public Evento(String nome, String dataHora, float preco, String endereco, String cep, String numero, String bairro, String cidade, String estado, String pais) {
+    public Evento(String nome, String dataHora, float preco, String endereco, String cep, int numero, String bairro, String cidade, String estado, String pais) {
         this.setNome(nome);
         this.setDataHora(dataHora);
         this.setPreco(preco);
@@ -33,6 +33,11 @@ public class Evento {
         this.setLikes(0);
         this.setDeslikes(0);
     }
+
+    public Evento(String nome){ //Construtor usado apenas para testes
+        this.setNome(nome);
+    }
+
     public int getIdEvento() {
         return idEvento;
     }
@@ -96,11 +101,11 @@ public class Evento {
         this.cep = cep;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 

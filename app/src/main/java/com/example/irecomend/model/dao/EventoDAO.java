@@ -2,12 +2,14 @@ package com.example.irecomend.model.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.irecomend.connection.Conexao;
 import com.example.irecomend.model.bean.Evento;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EventoDAO {
     private String tabela;
@@ -22,6 +24,7 @@ public class EventoDAO {
     }
 
     public long inserirEvento(Evento evento){
+
         ContentValues values = new ContentValues();
         values.put("nome", evento.getNome());
         values.put("data", evento.getDataHora());
@@ -49,9 +52,27 @@ public class EventoDAO {
 //
 //    }
 //
-//    public ArrayList<Evento> selecionaTodosEventos(){
-//
-//    }
+    public List<Evento> selecionaTodosEventos(){
+        List<Evento> eventos = new ArrayList<>();
+        String[] args = {"id", "nome", "data", "preco", "endereco", "cep", "numero",
+            "bairro", "cidade", "estado", "pais", "latitude", "longitude", "like", "deslike"};
+        Cursor cursor = banco.query(this.tabela, args, null, null,null,null,null);
+
+        while(cursor.moveToNext()) {
+            Evento ev = new Evento(cursor.getString(1), cursor.getString(2), cursor.getFloat(3), cursor.getString(4),
+                    cursor.getString(5), cursor.getInt(6), cursor.getString(7), cursor.getString(8), cursor.getString(9),
+                    cursor.getString(10));
+            ev.setIdEvento(cursor.getInt(0));
+            ev.setLatitude(cursor.getString(11));
+            ev.setLongitude(cursor.getString(12));
+            ev.setLikes(cursor.getInt(13));
+            ev.setDeslikes(cursor.getInt(14));
+
+            eventos.add(ev);
+        }
+
+        return eventos;
+    }
 //
 //    public Evento selecionaEventoById( int id){
 //
