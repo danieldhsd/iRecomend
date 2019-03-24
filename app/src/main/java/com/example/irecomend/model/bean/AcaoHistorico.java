@@ -7,6 +7,9 @@ public class AcaoHistorico {
     public AcaoHistorico(String descricao) {
         this.descricao = descricao;
     }
+    public AcaoHistorico(){
+        this.descricao = null;
+    }
 
     public int getIdAcaoHistorico() {
         return idAcaoHistorico;

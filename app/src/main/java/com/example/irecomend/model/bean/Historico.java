@@ -11,6 +11,11 @@ public class Historico {
         this.setAcaoHistorico(acaoHistorico);
         this.setEvento(evento);
     }
+    public Historico(){
+        this.cliente = null;
+        this.evento = null;
+        this.acaoHistorico = null;
+    }
 
     public Evento getEvento() {
         return evento;

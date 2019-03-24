@@ -1,7 +1,7 @@
 package com.example.irecomend.model.bean;
 
 public class Imagem {
-    private String idImagem;
+    private int idImagem;
     private String nome;
     private String caminho;
     private Evento evento;
@@ -13,11 +13,17 @@ public class Imagem {
         this.setEvento(evento);
     }
 
-    public String getIdImagem() {
+    public Imagem(){
+        this.nome = null;
+        this.caminho = null;
+        this.evento = null;
+    }
+
+    public int getIdImagem() {
         return idImagem;
     }
 
-    public void setIdImagem(String idImagem) {
+    public void setIdImagem(int idImagem) {
         this.idImagem = idImagem;
     }
 

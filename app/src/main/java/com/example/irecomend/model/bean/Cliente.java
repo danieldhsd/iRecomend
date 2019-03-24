@@ -13,6 +13,12 @@ public class Cliente {
         this.setEmail(email);
         this.setSenha(senha);
     }
+    public Cliente(){
+        this.nome = null;
+        this.sobrenome = null;
+        this.email = null;
+        this.senha = null;
+    }
 
     public String getNome() {
         return nome;

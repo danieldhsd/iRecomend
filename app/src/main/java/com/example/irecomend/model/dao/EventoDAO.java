@@ -16,9 +16,11 @@ public class EventoDAO {
     private Conexao conexao;
     private SQLiteDatabase banco;
     private String query;
+    private Context context;
 
     public EventoDAO(Context context){
         this.conexao = new Conexao(context);
+        this.context = context;
         this.banco = conexao.getWritableDatabase();
         this.tabela = "EVENTO";
     }
@@ -74,9 +76,33 @@ public class EventoDAO {
         return eventos;
     }
 //
-//    public Evento selecionaEventoById( int id){
-//
-//    }
+    public Evento selecionaEventoById( int id){
+        Evento evento = new Evento();
+        String[] params = {String.valueOf(id)};
+        String[] args = {"id", "nome", "data", "preco", "endereco", "cep", "numero",
+                "bairro", "cidade", "estado", "pais", "latitude", "longitude", "like", "deslike"};
+        Cursor cursor = banco.query(this.tabela, args, " idEvento = ? ", params,null,null,null);
+
+        if(cursor.moveToNext()){
+            evento.setIdEvento(cursor.getInt(0));
+            evento.setNome(cursor.getString(1));
+            evento.setDataHora(cursor.getString(2));
+            evento.setPreco(cursor.getFloat(3));
+            evento.setEndereco(cursor.getString(4));
+            evento.setCep(cursor.getString(5));
+            evento.setNumero(cursor.getInt(6));
+            evento.setBairro(cursor.getString(7));
+            evento.setCidade(cursor.getString(8));
+            evento.setEndereco(cursor.getString(9));
+            evento.setPais(cursor.getString(10));
+            evento.setLatitude(cursor.getString(11));
+            evento.setLongitude(cursor.getString(12));
+            evento.setLikes(cursor.getInt(13));
+            evento.setDeslikes(cursor.getInt(14));
+        }
+
+        return evento;
+    }
 //    public void criaTabela(){
 //
 //    }

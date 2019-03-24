@@ -16,9 +16,11 @@ public class AcaoHistoricoDAO {
     private SQLiteDatabase banco;
     private String tabela;
     private String query;
+    private Context context;
 
-    public void AcaoHistoricoDAO(Context context){
+    public AcaoHistoricoDAO(Context context) {
         this.conexao = new Conexao(context);
+        this.context = context;
         this.banco = this.conexao.getWritableDatabase();
         this.tabela = "ACAOHISTORICO";
     }
@@ -52,10 +54,20 @@ public class AcaoHistoricoDAO {
 
             return acaoHistoricos;
     }
-//
-//    public AcaoHistorico selecionaAcaoHistoricoById(int id){
-//
-//    }
+
+    public AcaoHistorico selecionaAcaoHistoricoById(int id){
+        AcaoHistorico acaoHistorico = new AcaoHistorico();
+        String[] args = {"idAcaoHistorico", "descricao"};
+        String[] params = {String.valueOf(id)};
+        Cursor cursor = this.banco.query(this.tabela, args, "IDACAOHISTORICO = ?", params, null, null, null, null);
+
+        if(cursor.moveToNext()){
+            acaoHistorico.setIdAcaoHistorico(cursor.getInt(0));
+            acaoHistorico.setDescricao(cursor.getString(1));
+        }
+
+        return acaoHistorico;
+    }
 //    public void criaTabela(){
 //
 //    }

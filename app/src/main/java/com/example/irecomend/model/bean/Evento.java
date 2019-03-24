@@ -34,8 +34,21 @@ public class Evento {
         this.setDeslikes(0);
     }
 
-    public Evento(String nome){ //Construtor usado apenas para testes
-        this.setNome(nome);
+    public Evento(){ //Construtor usado apenas para testes
+        this.nome = null;
+        this.dataHora = null;
+        this.preco = Float.parseFloat(null);
+        this.endereco = null;
+        this.cep = null;
+        this.numero = Integer.parseInt(null);
+        this.bairro = null;
+        this.cidade = null;
+        this.estado = null;
+        this.pais = null;
+        this.latitude = null;
+        this.longitude = null;
+        this.likes = Integer.parseInt(null);
+        this.deslikes = Integer.parseInt(null);
     }
 
     public int getIdEvento() {
