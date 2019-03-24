@@ -6,4 +6,8 @@
     <!-- Twitter consumer key and secret -->
     <string name="twitter_consumer_key" translatable="false">YOUR_CONSUMER_KEY</string>
     <string name="twitter_consumer_secret" translatable="false">YOUR_CONSUMER_SECRET</string>
+    <string name="cadastro_de_cliente">Cadastro de Cliente</string>
+    <string name="Login">Login</string>
+    <string name="criacao_evento">Criacao Evento</string>
+    <string name="caregamento_de_evento">Caregamento de Evento</string>
 </resources>
