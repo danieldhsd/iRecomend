@@ -1,5 +1,6 @@
 package com.example.irecomend;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,25 +18,31 @@ public class MainActivity extends AppCompatActivity {
         Button btnCadastroCliente = (Button) this.findViewById(R.id.btnCadastroCliente);
         Button btnCriacaoEvento = (Button) this.findViewById(R.id.btnCriacaoEvento);
         Button btnCarregamentoEvento = (Button) this.findViewById(R.id.btnCarregamentoEvento);
-//
-//        btnLogin.setOnClickListener((View) this);
-//        btnCadastroCliente.setOnClickListener((View.OnClickListener) this);
-//        btnCriacaoEvento.setOnClickListener((View.OnClickListener) this);
-//        btnCarregamentoEvento.setOnClickListener((View.OnClickListener) this);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), TelaLogin.class));
+            }
+        });
+        btnCadastroCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(getApplicationContext(), TelaCadastroCliente.class));
+            }
+        });
+        btnCriacaoEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), TelaCadastroEvento.class));
+            }
+        });
+        btnCarregamentoEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), TelaCarregaEvento.class));
+            }
+        });
     }
 
-    public void onClick(View view){
-        if(view.getId() == R.id.btnCadastroCliente){
-            Toast.makeText(this, "Cadastro de cliente", Toast.LENGTH_LONG);
-        }
-        else if(view.getId() == R.id.btnLogin){
-            Toast.makeText(this, "Login", Toast.LENGTH_LONG);
-        }
-        else if(view.getId() == R.id.btnCriacaoEvento){
-            Toast.makeText(this, "Criacao de Evento", Toast.LENGTH_LONG);
-        }
-        else if(view.getId() == R.id.btnCarregamentoEvento){
-            Toast.makeText(this, "Carregamento de evento", Toast.LENGTH_LONG);
-        }
-    }
 }
