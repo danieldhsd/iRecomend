@@ -47,7 +47,7 @@ public class Conexao extends SQLiteOpenHelper{
                 "  `nome` TEXT NOT NULL,\n" +
                 "  `sobrenome` TEXT NOT NULL,\n" +
                 "  `email` TEXT NOT NULL,\n" +
-                "  `senha` TEXT NOT NULL");
+                "  `senha` TEXT NOT NULL)");
     }
 
     private void scriptEvento(){ //Script índice 1
@@ -66,12 +66,12 @@ public class Conexao extends SQLiteOpenHelper{
                 "  `cep` TEXT NULL,\n" +
                 "  `pais` TEXT NULL,\n" +
                 "  `latitude` TEXT NULL,\n" +
-                "  `longitude` TEXT NULL");
+                "  `longitude` TEXT NULL)");
     }
     private void scriptAcaoHistorico(){ //Script índice 2
         this.scripts.add("CREATE TABLE `AcaoHistorico` (\n" +
                 "  `idAcaoHistorico` INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-                "  `descricao` TEXT NULL");
+                "  `descricao` TEXT NULL)");
     }
     private void scriptImagem() { //Script índice 3
         this.scripts.add("CREATE TABLE `Imagem` (\n" +
@@ -82,7 +82,7 @@ public class Conexao extends SQLiteOpenHelper{
                 "    FOREIGN KEY (`idEvento`)\n" +
                 "    REFERENCES `Evento` (`idEvento`)\n" +
                 "    ON DELETE CASCADE\n" +
-                "    ON UPDATE CASCADE);");
+                "    ON UPDATE CASCADE)");
     }
     private void scriptHistorico(){ //Script índice 4
         this.scripts.add("CREATE TABLE `Historico` (\n" +
@@ -101,7 +101,7 @@ public class Conexao extends SQLiteOpenHelper{
                 "    FOREIGN KEY (`IdAcaoHistorico`)\n" +
                 "    REFERENCES `AcaoHistorico` (`idAcaoHistorico`)\n" +
                 "    ON DELETE CASCADE\n" +
-                "    ON UPDATE CASCADE);");
+                "    ON UPDATE CASCADE)");
     }
 
     public static final String COL_1 = "idCliente";
