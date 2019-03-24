@@ -1,8 +1,12 @@
 package com.example.irecomend.connection;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.irecomend.model.bean.Cliente;
+import com.example.irecomend.model.dao.ClienteDAO;
 
 import java.util.ArrayList;
 
@@ -98,6 +102,32 @@ public class Conexao extends SQLiteOpenHelper{
                 "    REFERENCES `AcaoHistorico` (`idAcaoHistorico`)\n" +
                 "    ON DELETE CASCADE\n" +
                 "    ON UPDATE CASCADE);");
+    }
+
+    public static final String COL_1 = "idCliente";
+    public static final String COL_2 = "email";
+    public static final String COL_3 = "senha";
+    public static final String TABLE_NAME = "Cliente";
+
+    public boolean checaUsuario(String email, String senha){
+        String[] columns = { COL_1};
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = COL_2 + "=?" + "and " + COL_3 + "=?" ;
+        String[] selectionArgs = {email,senha};
+        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null,null,null);
+
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+
+        if(count>0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

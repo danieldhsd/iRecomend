@@ -15,4 +15,8 @@
     <string name="cadastro_de_evento">Cadastro de Evento</string>
     <string name="carregamento_de_eventos">Carregamento de Eventos</string>
     <string name="login">Login</string>
+    <string name="usuario">Email</string>
+    <string name="senha">Senha</string>
+    <string name="nao_registrado">Não possui conta?</string>
+    <string name="registrar">Registrar</string>
 </resources>
