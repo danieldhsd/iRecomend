@@ -1,12 +1,10 @@
 package com.example.irecomend.model.bean;
 
-import java.util.Date;
-
 public class Evento {
     private int idEvento;
     private String nome;
     private String dataHora;
-    private float preco;
+    private double preco;
     private String endereco;
     private String cep;
     private int numero;
@@ -19,7 +17,7 @@ public class Evento {
     private int likes;
     private int deslikes;
 
-    public Evento(String nome, String dataHora, float preco, String endereco, String cep, int numero, String bairro, String cidade, String estado, String pais) {
+    public Evento(String nome, String dataHora, double preco, String endereco, String cep, int numero, String bairro, String cidade, String estado, String pais) {
         this.setNome(nome);
         this.setDataHora(dataHora);
         this.setPreco(preco);
@@ -37,18 +35,18 @@ public class Evento {
     public Evento(){ //Construtor usado apenas para testes
         this.nome = null;
         this.dataHora = null;
-        this.preco = Float.parseFloat(null);
+        this.preco = 0;
         this.endereco = null;
         this.cep = null;
-        this.numero = Integer.parseInt(null);
+        this.numero = 0;
         this.bairro = null;
         this.cidade = null;
         this.estado = null;
         this.pais = null;
         this.latitude = null;
         this.longitude = null;
-        this.likes = Integer.parseInt(null);
-        this.deslikes = Integer.parseInt(null);
+        this.likes = 0;
+        this.deslikes = 0;
     }
 
     public int getIdEvento() {
@@ -90,11 +88,11 @@ public class Evento {
         this.dataHora = dataHora;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 

@@ -19,4 +19,15 @@
     <string name="senha">Senha</string>
     <string name="nao_registrado">Não possui conta?</string>
     <string name="registrar">Registrar</string>
+    <string name="nome">Nome</string>
+    <string name="data_e_hora">Data e Hora</string>
+    <string name="endereco">Endereco</string>
+    <string name="numero">Numero</string>
+    <string name="cep">CEP</string>
+    <string name="bairro">Bairro</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+    <string name="pais">Pais</string>
+    <string name="deslikes">Deslikes</string>
+    <string name="likes">Likes</string>
 </resources>

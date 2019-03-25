@@ -67,7 +67,6 @@ public class ClienteDAO {
         String[] args = {"idCliente", "nome", "sobrenome", "email", "senha"};
         String[] params = {String.valueOf(id)};
         Cursor cursor = this.banco.query(this.tabela, args, "IDCLIENTE = ?", params, null, null, null, null);
-
         if(cursor.moveToNext()){
             cliente.setIdCliente(cursor.getInt(0));
             cliente.setNome(cursor.getString(1));

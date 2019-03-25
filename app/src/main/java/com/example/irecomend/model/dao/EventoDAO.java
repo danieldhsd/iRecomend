@@ -26,7 +26,6 @@ public class EventoDAO {
     }
 
     public long inserirEvento(Evento evento){
-
         ContentValues values = new ContentValues();
         values.put("nome", evento.getNome());
         values.put("data", evento.getDataHora());
@@ -38,7 +37,7 @@ public class EventoDAO {
         values.put("cidade", evento.getCidade());
         values.put("estado", evento.getEstado());
         values.put("pais", evento.getPais());
-        values.put("like", evento.getLikes());
+        values.put("likes", evento.getLikes());
         values.put("deslike", evento.getDeslikes());
         values.put("latitude", evento.getLatitude());
         values.put("longitude", evento.getLongitude());
@@ -57,7 +56,7 @@ public class EventoDAO {
     public List<Evento> selecionaTodosEventos(){
         List<Evento> eventos = new ArrayList<>();
         String[] args = {"id", "nome", "data", "preco", "endereco", "cep", "numero",
-            "bairro", "cidade", "estado", "pais", "latitude", "longitude", "like", "deslike"};
+            "bairro", "cidade", "estado", "pais", "latitude", "longitude", "likes", "deslike"};
         Cursor cursor = banco.query(this.tabela, args, null, null,null,null,null);
 
         while(cursor.moveToNext()) {
@@ -79,9 +78,10 @@ public class EventoDAO {
     public Evento selecionaEventoById( int id){
         Evento evento = new Evento();
         String[] params = {String.valueOf(id)};
-        String[] args = {"id", "nome", "data", "preco", "endereco", "cep", "numero",
-                "bairro", "cidade", "estado", "pais", "latitude", "longitude", "like", "deslike"};
-        Cursor cursor = banco.query(this.tabela, args, " idEvento = ? ", params,null,null,null);
+        String[] args = {"idEvento", "nome", "data", "preco", "endereco", "cep", "numero",
+                "bairro", "cidade", "estado", "pais", "latitude", "longitude", "likes", "deslike"};
+        Cursor cursor = banco.query(this.tabela, args, " idEvento = ? ", params, null, null, null);
+
 
         if(cursor.moveToNext()){
             evento.setIdEvento(cursor.getInt(0));
@@ -93,7 +93,7 @@ public class EventoDAO {
             evento.setNumero(cursor.getInt(6));
             evento.setBairro(cursor.getString(7));
             evento.setCidade(cursor.getString(8));
-            evento.setEndereco(cursor.getString(9));
+            evento.setEstado(cursor.getString(9));
             evento.setPais(cursor.getString(10));
             evento.setLatitude(cursor.getString(11));
             evento.setLongitude(cursor.getString(12));

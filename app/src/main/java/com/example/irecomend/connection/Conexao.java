@@ -12,21 +12,74 @@ import java.util.ArrayList;
 
 public class Conexao extends SQLiteOpenHelper{
 
-    private static final String name = "iRecomend";
+    private static final String name = "db";
     private static final int version = 1;
+    private String scriptGeral = "";
     private ArrayList<String> scripts;
 
 
     public Conexao(Context context) {
         super(context, name, null, version);
-        this.preencheScripts();
+        //this.preencheScripts();
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        for (String script:this.scripts) {
-            db.execSQL(script);
-        }
+        db.execSQL("CREATE TABLE Evento (" +
+                "  idEvento INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "  nome TEXT," +
+                "  data NUMERIC," +
+                "  preco REAL," +
+                "  likes INTEGER," +
+                "  deslike INTEGER," +
+                "  endereco TEXT," +
+                "  numero INTEGER," +
+                "  bairro TEXT," +
+                "  cidade TEXT," +
+                "  estado TEXT," +
+                "  cep TEXT," +
+                "  pais TEXT," +
+                "  latitude TEXT," +
+                "  longitude TEXT)");
+
+        db.execSQL("CREATE TABLE Cliente (" +
+                "  idCliente INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "  nome TEXT," +
+                "  sobrenome TEXT," +
+                "  email TEXT," +
+                "  senha TEXT);");
+
+        db.execSQL("CREATE TABLE AcaoHistorico (" +
+                "  idAcaoHistorico INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "  descricao TEXT);");
+
+        db.execSQL("CREATE TABLE Imagem (" +
+                "  idImagem INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "  nome TEXT," +
+                "  caminho TEXT," +
+                "  idEvento INTEGER," +
+                "    FOREIGN KEY (idEvento)" +
+                "    REFERENCES Evento (idEvento)" +
+                "    ON DELETE CASCADE" +
+                "    ON UPDATE CASCADE);");
+
+        db.execSQL("CREATE TABLE Historico (" +
+                "  idHistorico INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "  idCliente INTEGER," +
+                "  idEvento INTEGER," +
+                "  idAcaoHistorico INTEGER," +
+                "    FOREIGN KEY (idCliente)" +
+                "    REFERENCES Cliente (idCliente)" +
+                "    ON DELETE CASCADE" +
+                "    ON UPDATE CASCADE," +
+                "    FOREIGN KEY (idEvento)" +
+                "    REFERENCES Evento (idEvento)" +
+                "    ON DELETE CASCADE" +
+                "    ON UPDATE CASCADE," +
+                "    FOREIGN KEY (IdAcaoHistorico)" +
+                "    REFERENCES AcaoHistorico (idAcaoHistorico)" +
+                "    ON DELETE CASCADE" +
+                "    ON UPDATE CASCADE);");
     }
 
     @Override
@@ -35,73 +88,74 @@ public class Conexao extends SQLiteOpenHelper{
     }
 
     private void preencheScripts(){
-        this.scriptCliente();
+        this.scripts = new ArrayList<>();
+//        this.scriptCliente();
         this.scriptEvento();
-        this.scriptAcaoHistorico();
-        this.scriptImagem();
-        this.scriptHistorico();
+//        this.scriptAcaoHistorico();
+//        this.scriptImagem();
+//        this.scriptHistorico();
     }
     private void scriptCliente(){ //Script índice 0
-        this.scripts.add("CREATE TABLE `Cliente` (\n" +
-                "  `idCliente` INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-                "  `nome` TEXT NOT NULL,\n" +
-                "  `sobrenome` TEXT NOT NULL,\n" +
-                "  `email` TEXT NOT NULL,\n" +
-                "  `senha` TEXT NOT NULL)");
+        this.scripts.add("CREATE TABLE Cliente (" +
+                "  idCliente INT NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                "  nome TEXT NOT NULL," +
+                "  sobrenome TEXT NOT NULL," +
+                "  email TEXT NOT NULL," +
+                "  senha TEXT NOT NULL);");
     }
 
     private void scriptEvento(){ //Script índice 1
-        this.scripts.add("CREATE TABLE `Evento` (\n" +
-                "  `idEvento` INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-                "  `nome` TEXT NOT NULL,\n" +
-                "  `data` DATETIME NOT NULL,\n" +
-                "  `preco` DECIMAL(10,2) NULL,\n" +
-                "  `likes` INT NULL,\n" +
-                "  `deslike` INT NULL,\n" +
-                "  `endereco` TEXT NULL,\n" +
-                "  `numero` INT NULL,\n" +
-                "  `bairro` TEXT NULL,\n" +
-                "  `cidade` TEXT NULL,\n" +
-                "  `estado` TEXT NULL,\n" +
-                "  `cep` TEXT NULL,\n" +
-                "  `pais` TEXT NULL,\n" +
-                "  `latitude` TEXT NULL,\n" +
-                "  `longitude` TEXT NULL)");
+        this.scripts.add("CREATE TABLE Evento (" +
+                "  idEvento INT NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                "  nome TEXT," +
+                "  data DATETIME," +
+                "  preco DECIMAL(10,2)," +
+                "  likes INT," +
+                "  deslike INT," +
+                "  endereco TEXT," +
+                "  numero INT," +
+                "  bairro TEXT," +
+                "  cidade TEXT," +
+                "  estado TEXT," +
+                "  cep TEXT," +
+                "  pais TEXT," +
+                "  latitude TEXT," +
+                "  longitude TEXT);");
     }
     private void scriptAcaoHistorico(){ //Script índice 2
-        this.scripts.add("CREATE TABLE `AcaoHistorico` (\n" +
-                "  `idAcaoHistorico` INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-                "  `descricao` TEXT NULL)");
+        this.scripts.add("CREATE TABLE AcaoHistorico (\n" +
+                "  idAcaoHistorico INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+                "  descricao TEXT NULL);");
     }
     private void scriptImagem() { //Script índice 3
-        this.scripts.add("CREATE TABLE `Imagem` (\n" +
-                "  `idImagem` INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-                "  `nome` TEXT NULL,\n" +
-                "  `caminho` TEXT NULL,\n" +
-                "  `idEvento` INT NOT NULL,\n" +
-                "    FOREIGN KEY (`idEvento`)\n" +
-                "    REFERENCES `Evento` (`idEvento`)\n" +
+        this.scripts.add("CREATE TABLE Imagem (\n" +
+                "  idImagem INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+                "  nome TEXT NULL,\n" +
+                "  caminho TEXT NULL,\n" +
+                "  idEvento INT NOT NULL,\n" +
+                "    FOREIGN KEY (idEvento)\n" +
+                "    REFERENCES Evento (idEvento)\n" +
                 "    ON DELETE CASCADE\n" +
-                "    ON UPDATE CASCADE)");
+                "    ON UPDATE CASCADE);");
     }
     private void scriptHistorico(){ //Script índice 4
-        this.scripts.add("CREATE TABLE `Historico` (\n" +
-                "  `idHistorico` INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-                "  `idCliente` INT NOT NULL,\n" +
-                "  `idEvento` INT NOT NULL,\n" +
-                "  `idAcaoHistorico` INT NOT NULL,\n" +
-                "    FOREIGN KEY (`idCliente`)\n" +
-                "    REFERENCES `Cliente` (`idCliente`)\n" +
+        this.scripts.add("CREATE TABLE Historico (\n" +
+                "  idHistorico INT NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+                "  idCliente INT NOT NULL,\n" +
+                "  idEvento INT NOT NULL,\n" +
+                "  idAcaoHistorico INT NOT NULL,\n" +
+                "    FOREIGN KEY (idCliente)\n" +
+                "    REFERENCES Cliente (idCliente)\n" +
                 "    ON DELETE CASCADE\n" +
                 "    ON UPDATE CASCADE,\n" +
-                "    FOREIGN KEY (`idEvento`)\n" +
-                "    REFERENCES `Evento` (`idEvento`)\n" +
+                "    FOREIGN KEY (idEvento)\n" +
+                "    REFERENCES Evento (idEvento)\n" +
                 "    ON DELETE CASCADE\n" +
                 "    ON UPDATE CASCADE,\n" +
-                "    FOREIGN KEY (`IdAcaoHistorico`)\n" +
-                "    REFERENCES `AcaoHistorico` (`idAcaoHistorico`)\n" +
+                "    FOREIGN KEY (IdAcaoHistorico)\n" +
+                "    REFERENCES AcaoHistorico (idAcaoHistorico)\n" +
                 "    ON DELETE CASCADE\n" +
-                "    ON UPDATE CASCADE)");
+                "    ON UPDATE CASCADE);");
     }
 
     public static final String COL_1 = "idCliente";
