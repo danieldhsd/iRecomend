@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.view.View;
 
 import com.example.irecomend.connection.Conexao;
 import com.example.irecomend.model.bean.Cliente;
@@ -24,6 +25,7 @@ public class ClienteDAO {
         this.banco = this.conexao.getWritableDatabase();
         this.tabela = "CLIENTE";
     }
+
 
     public long inserirCliente(Cliente cliente){
         ContentValues values = new ContentValues();
@@ -75,6 +77,21 @@ public class ClienteDAO {
             cliente.setSobrenome(cursor.getString(4));
         }
 
+        return cliente;
+    }
+
+    public Cliente selecionaClienteByEmail(String email){
+        Cliente cliente = new Cliente();
+        String[] args = {"idCliente", "nome", "sobrenome", "email", "senha"};
+        String[] params = {String.valueOf(email)};
+        Cursor cursor = this.banco.query(this.tabela, args, "email = ?", params, null, null, null, null);
+        if(cursor.moveToNext()){
+            cliente.setIdCliente(cursor.getInt(0));
+            cliente.setNome(cursor.getString(1));
+            cliente.setSobrenome(cursor.getString(2));
+            cliente.setEmail(cursor.getString(3));
+            cliente.setSobrenome(cursor.getString(4));
+        }
         return cliente;
     }
 //    public void criaTabela(){

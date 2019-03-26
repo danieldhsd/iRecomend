@@ -163,26 +163,5 @@ public class Conexao extends SQLiteOpenHelper{
     public static final String COL_3 = "senha";
     public static final String TABLE_NAME = "Cliente";
 
-    public boolean checaUsuario(String email, String senha){
-        String[] columns = { COL_1};
-        SQLiteDatabase db = getReadableDatabase();
-        String selection = COL_2 + "=?" + "and " + COL_3 + "=?" ;
-        String[] selectionArgs = {email,senha};
-        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null,null,null);
-
-        int count = cursor.getCount();
-        cursor.close();
-        db.close();
-
-        if(count>0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
 
 }
