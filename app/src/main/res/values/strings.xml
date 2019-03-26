@@ -30,4 +30,6 @@
     <string name="pais">Pais</string>
     <string name="deslikes">Deslikes</string>
     <string name="likes">Likes</string>
+    <string name="title_menu_cadastrar">Cadastrar</string>
+    <string name="title_menu_cancelar">Cancelar</string>
 </resources>
