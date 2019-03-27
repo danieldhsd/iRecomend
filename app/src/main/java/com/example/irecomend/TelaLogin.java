@@ -55,12 +55,13 @@ public class TelaLogin extends AppCompatActivity {
 
                 boolean res = chamaBanco(login);
 
-                if(res==true){
-                    login sucesso
+                if(res==true)
+                {
+                    Toast.makeText(TelaLogin.this,"Login feito com sucesso!", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    deu ruim
+                    Toast.makeText(TelaLogin.this,"Login não foi feito!", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -74,7 +75,8 @@ public class TelaLogin extends AppCompatActivity {
         Cliente novo = new Cliente();
         novo = cDao.selecionaClienteByEmail(cliente.getEmail());
 
-
+        if(novo.getSenha()==cliente.getSenha()) return true;
+        return false;
     }
 
 }
