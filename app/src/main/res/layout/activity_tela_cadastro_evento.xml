@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.011" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/Rua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -33,7 +33,7 @@
         tools:layout_editor_absoluteY="370dp" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/Bairro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -43,7 +43,7 @@
         tools:layout_editor_absoluteY="493dp" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/Horario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -53,7 +53,7 @@
         tools:layout_editor_absoluteY="180dp" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/DataEvento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +63,7 @@
         tools:layout_editor_absoluteY="117dp" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/Preco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -73,7 +73,7 @@
         tools:layout_editor_absoluteY="240dp" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/Cidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -83,7 +83,7 @@
         tools:layout_editor_absoluteY="548dp" />
 
     <EditText
-        android:id="@+id/editText12"
+        android:id="@+id/Pais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -93,7 +93,7 @@
         tools:layout_editor_absoluteY="603dp" />
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/CEP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -103,7 +103,7 @@
         tools:layout_editor_absoluteY="304dp" />
 
     <EditText
-        android:id="@+id/editText14"
+        android:id="@+id/Numero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -113,7 +113,7 @@
         tools:layout_editor_absoluteY="434dp" />
 
     <EditText
-        android:id="@+id/editText15"
+        android:id="@+id/nomeEvento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -123,7 +123,7 @@
         tools:layout_editor_absoluteY="52dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Confirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirmar"
