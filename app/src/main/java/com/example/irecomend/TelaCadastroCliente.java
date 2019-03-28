@@ -5,13 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 
 import com.example.irecomend.connection.Conexao;
 import com.example.irecomend.model.bean.Cliente;
 import com.example.irecomend.model.dao.ClienteDAO;
+
+import static com.example.irecomend.R.menu.menu_cadastro_cliente;
 
 public class TelaCadastroCliente extends AppCompatActivity {
 
@@ -24,7 +30,7 @@ public class TelaCadastroCliente extends AppCompatActivity {
     EditText emailEditText;
     EditText senhaEditText;
     EditText confirmarEdittext;
-    Conexao db;
+    Button cadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,13 @@ public class TelaCadastroCliente extends AppCompatActivity {
         this.senhaEditText = this.findViewById(R.id.senhaEditText);
         this.confirmarEdittext = this.findViewById(R.id.confirmarEdittext);
 
-        validaCampos();
+        this.cadastrar = this.findViewById(R.id.botaoCadastro);
+        this.cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validaCampos();
+            }
+        });
 
         clienteDAO = new ClienteDAO(this);
         cliente = new Cliente(this.nomeEditText.getText().toString(),this.sobrenomeEditText.getText().toString(),this.emailEditText.getText().toString(),this.senhaEditText.getText().toString());
@@ -130,12 +142,12 @@ public class TelaCadastroCliente extends AppCompatActivity {
 
             }*/
 
-    /*
+        /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_cadastro_cliente);
+        inflater.inflate(menu_cadastro_cliente);
         return super.onCreateOptionsMenu(menu);
     }*/
 
