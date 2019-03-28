@@ -25,26 +25,24 @@ public class TelaCadastroEvento extends AppCompatActivity {
     EditText estado;
     EditText pais;
     Button btnConfirmar;
+
     double precoFinal;
     int numRua;
-
-    Conexao db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro_evento);
 
-        db = new Conexao( this);
 
         nomeEvento = (EditText)findViewById(R.id.nomeEvento);
         data = (EditText)findViewById(R.id.DataHoraEvento);
         preco = (EditText)findViewById(R.id.Preco);
-        precoFinal = new Double(preco.getText().toString()).doubleValue();
+        precoFinal = Double.parseDouble(preco.getText().toString());
         cep = (EditText)findViewById(R.id.CEP);
-        rua = (EditText)findViewById(R.id.CEP);
+        rua = (EditText)findViewById(R.id.Rua);
         numero = (EditText)findViewById(R.id.Numero);
-        numRua = new Integer(numero.getText().toString()).intValue();
+        numRua = Integer.parseInt(numero.getText().toString());
         bairro = (EditText)findViewById(R.id.Bairro);
         cidade = (EditText)findViewById(R.id.Cidade);
         estado = (EditText)findViewById(R.id.Estado);
