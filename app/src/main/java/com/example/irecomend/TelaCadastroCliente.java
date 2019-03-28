@@ -54,6 +54,11 @@ public class TelaCadastroCliente extends AppCompatActivity {
         clienteDAO = new ClienteDAO(this);
         cliente = new Cliente(this.nomeEditText.getText().toString(),this.sobrenomeEditText.getText().toString(),this.emailEditText.getText().toString(),this.senhaEditText.getText().toString());
         clienteDAO.inserirCliente(cliente);
+        AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+        dlg.setTitle("Aviso");
+        dlg.setMessage("Cliente Cadastrado");
+        dlg.setNeutralButton("OK",null);
+        dlg.show();
 
     }
     public void validaCampos()
