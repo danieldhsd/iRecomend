@@ -71,27 +71,26 @@ public class TelaCadastroCliente extends AppCompatActivity {
             nomeEditText.requestFocus();
             res = true;
         }
-        else if(isCampoVazio(sobrenome))
+        if(isCampoVazio(sobrenome))
         {
             sobrenomeEditText.requestFocus();
             res = true;
         }
-        else if((isCampoVazio(email)) || (!isEmailValido(email)))
+        if(!isEmailValido(email))
         {
             emailEditText.requestFocus();
             res = true;
         }
-        else if(isCampoVazio(senha))
+        if(isCampoVazio(senha))
         {
             senhaEditText.requestFocus();
             res = true;
         }
-        else if(isCampoVazio(confirmacao)||!isIguais(senha,confirmacao))
+        if(isCampoVazio(confirmacao))
         {
             confirmarEdittext.requestFocus();
             res = true;
         }
-
         if(res)
         {
             AlertDialog.Builder dlg = new AlertDialog.Builder(this);
