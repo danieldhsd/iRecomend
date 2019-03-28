@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.irecomend.connection.Conexao;
 import com.example.irecomend.model.bean.Evento;
@@ -60,7 +61,9 @@ public class TelaCadastroEvento extends AppCompatActivity {
                 eventoDAO = new EventoDAO(context);
                 evento = new Evento(nomeEvento.getText().toString(), data.getText().toString(), precoFinal, rua.getText().toString(), /*cep.getText().toString()*/"35500-000",
                         numRua, bairro.getText().toString(), cidade.getText().toString(), estado.getText().toString(), pais.getText().toString());
-                eventoDAO.inserirEvento(evento);
+                if ( eventoDAO.inserirEvento(evento) > 0){
+                    Toast.makeText(context, "Evento Inserido!", Toast.LENGTH_LONG);
+                }
             }
         });
 
