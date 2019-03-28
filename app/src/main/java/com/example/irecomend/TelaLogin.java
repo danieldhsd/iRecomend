@@ -21,8 +21,6 @@ public class TelaLogin extends AppCompatActivity {
     Button mButtonLogin;
     TextView mTextViewRegistrar;
     Conexao db;
-    String emailDeLogin;
-    String senhaDeLogin;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -50,13 +48,13 @@ public class TelaLogin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 
-                this.emailDeLogin = mTextUsuario.getText().toString().trim();
-                this.senhaDeLogin = mTextSenha.getText().toString().trim();
+                String emailDeLogin = mTextUsuario.getText().toString().trim();
+                String senhaDeLogin = mTextSenha.getText().toString().trim();
 
                 Cliente login = new Cliente();
 
-                login.setSenha(senha);
-                login.setEmail(email);
+                login.setSenha(senhaDeLogin);
+                login.setEmail(emailDeLogin);
         
                 boolean res = chamaBanco(login);
 
