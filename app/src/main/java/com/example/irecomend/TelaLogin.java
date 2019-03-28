@@ -21,6 +21,8 @@ public class TelaLogin extends AppCompatActivity {
     Button mButtonLogin;
     TextView mTextViewRegistrar;
     Conexao db;
+    String emailDeLogin;
+    String senhaDeLogin;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -28,11 +30,15 @@ public class TelaLogin extends AppCompatActivity {
         setContentView(R.layout.activity_tela_login);
 
         db = new Conexao(this);
-        mTextUsuario = (EditText)findViewById(R.id.edittext_usuario);
-        mTextSenha = (EditText)findViewById(R.id.edittext_senha);
+        
+        
+        this.mTextUsuario = (EditText)findViewById(R.id.edittext_usuario);
+        this.mTextSenha = (EditText)findViewById(R.id.edittext_senha);
         mButtonLogin = (Button) findViewById(R.id.button_login);
         mTextViewRegistrar = (TextView) findViewById(R.id.textview_registrar);
         mTextViewRegistrar.setOnClickListener(new View.OnClickListener() {
+            
+            
             @Override
             public void onClick(View view) {
                 Intent registerIntent = new Intent (TelaLogin.this , TelaCadastroCliente.class);
@@ -43,16 +49,15 @@ public class TelaLogin extends AppCompatActivity {
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = mTextUsuario.getText().toString().trim();
-                String senha = mTextSenha.getText().toString().trim();
+                
+                this.emailDeLogin = mTextUsuario.getText().toString().trim();
+                this.senhaDeLogin = mTextSenha.getText().toString().trim();
 
                 Cliente login = new Cliente();
 
                 login.setSenha(senha);
                 login.setEmail(email);
-                login.setNome(null);
-                login.setSobrenome(null);
-
+        
                 boolean res = chamaBanco(login);
 
                 if(res==true)
@@ -72,10 +77,10 @@ public class TelaLogin extends AppCompatActivity {
     {
         ClienteDAO cDao = new ClienteDAO(this);
 
-        Cliente novo = new Cliente();
-        novo = cDao.selecionaClienteByEmail(cliente.getEmail());
+        Cliente banco = new Cliente();
+        banco = cDao.selecionaClienteByEmail(cliente.getEmail());
 
-        if(novo.getSenha()==cliente.getSenha()) return true;
+        if(banco.getSenha()==cliente.getSenha()) return true;
         return false;
     }
 
