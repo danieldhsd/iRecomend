@@ -1,7 +1,9 @@
 package com.example.irecomend;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -26,6 +28,8 @@ public class TelaCadastroEvento extends AppCompatActivity {
     EditText pais;
     Button btnConfirmar;
 
+    Context context;
+
     double precoFinal;
     int numRua;
 
@@ -34,6 +38,7 @@ public class TelaCadastroEvento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro_evento);
 
+        context = this;
 
         nomeEvento = (EditText)findViewById(R.id.nomeEvento);
         data = (EditText)findViewById(R.id.DataHoraEvento);
@@ -49,8 +54,14 @@ public class TelaCadastroEvento extends AppCompatActivity {
         pais = (EditText)findViewById(R.id.Pais);
         btnConfirmar = (Button)findViewById(R.id.Confirmar);
 
-        eventoDAO = new EventoDAO(this);
-        evento = new Evento(this.nomeEvento.getText().toString(), this.data.getText().toString(), this.precoFinal, this.rua.getText().toString(), cep.getText().toString(), this.numRua, this.bairro.getText().toString(), this.cidade.getText().toString(), this.estado.getText().toString(), this.pais.getText().toString());
-        eventoDAO.inserirEvento(evento);
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eventoDAO = new EventoDAO(context);
+                evento = new Evento(nomeEvento.getText().toString(), data.getText().toString(), precoFinal, rua.getText().toString(), cep.getText().toString(), numRua, bairro.getText().toString(), cidade.getText().toString(), estado.getText().toString(), pais.getText().toString());
+                eventoDAO.inserirEvento(evento);
+            }
+        });
+
     }
 }
