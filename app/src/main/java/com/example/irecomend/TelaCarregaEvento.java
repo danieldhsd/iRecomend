@@ -58,7 +58,7 @@ public class TelaCarregaEvento extends AppCompatActivity {
 
         eventoDAO = new EventoDAO(this);
         evento = eventoDAO.selecionaEventoById(1);
-        //this.teste();
+        this.teste();
 
         this.nomeCarregamentoEvento.setText(evento.getNome());
         this.datahoraCarregamentoEvento.setText(evento.getDataHora());
