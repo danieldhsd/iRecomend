@@ -91,15 +91,18 @@
         android:id="@+id/Pais"
         android:layout_width="213dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="614dp"
+        android:layout_marginEnd="173dp"
         android:layout_marginBottom="19dp"
         android:ems="10"
         android:hint="País"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/Confirmar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="25dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/CEP"
@@ -154,9 +157,15 @@
         android:id="@+id/Confirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="154dp"
+        android:layout_marginBottom="5dp"
         android:text="Confirmar"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="678dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pais" />
 
     <EditText
         android:id="@+id/Estado"
