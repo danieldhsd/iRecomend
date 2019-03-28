@@ -29,8 +29,8 @@
         android:ems="10"
         android:hint="Rua"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="370dp" />
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="299dp" />
 
     <EditText
         android:id="@+id/Bairro"
@@ -40,24 +40,14 @@
         android:hint="Bairro"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="493dp" />
+        tools:layout_editor_absoluteY="422dp" />
 
     <EditText
-        android:id="@+id/Horario"
+        android:id="@+id/DataHoraEvento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Hora"
-        android:inputType="time"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="180dp" />
-
-    <EditText
-        android:id="@+id/DataEvento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Data"
+        android:hint="Data/Hora"
         android:inputType="date"
         tools:layout_editor_absoluteX="26dp"
         tools:layout_editor_absoluteY="117dp" />
@@ -70,7 +60,7 @@
         android:hint="Preço"
         android:inputType="numberDecimal"
         tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="240dp" />
+        tools:layout_editor_absoluteY="183dp" />
 
     <EditText
         android:id="@+id/Cidade"
@@ -79,8 +69,8 @@
         android:ems="10"
         android:hint="Cidade"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="548dp" />
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="488dp" />
 
     <EditText
         android:id="@+id/Pais"
@@ -90,7 +80,7 @@
         android:hint="País"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="603dp" />
+        tools:layout_editor_absoluteY="614dp" />
 
     <EditText
         android:id="@+id/CEP"
@@ -100,7 +90,7 @@
         android:hint="CEP"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="304dp" />
+        tools:layout_editor_absoluteY="241dp" />
 
     <EditText
         android:id="@+id/Numero"
@@ -109,8 +99,8 @@
         android:ems="10"
         android:hint="Número"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="434dp" />
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="359dp" />
 
     <EditText
         android:id="@+id/nomeEvento"
@@ -127,7 +117,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirmar"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="667dp" />
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="678dp" />
+
+    <EditText
+        android:id="@+id/Estado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Estado"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="549dp" />
 
 </android.support.constraint.ConstraintLayout>
