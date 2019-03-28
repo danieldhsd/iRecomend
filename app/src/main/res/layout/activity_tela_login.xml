@@ -17,18 +17,18 @@
 
     <EditText
         android:id="@+id/edittext_usuario"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:hint="@string/usuario"
+     
          />
 
     <EditText
         android:id="@+id/edittext_senha"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:hint="@string/senha"/>
+       />
     
     <Button
         android:id="@+id/button_login"
