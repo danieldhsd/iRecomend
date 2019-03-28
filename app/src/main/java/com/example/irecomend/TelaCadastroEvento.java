@@ -38,16 +38,16 @@ public class TelaCadastroEvento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro_evento);
 
-        context = this;
+        context = this.getApplicationContext();
 
         nomeEvento = (EditText)findViewById(R.id.nomeEvento);
         data = (EditText)findViewById(R.id.DataHoraEvento);
         preco = (EditText)findViewById(R.id.Preco);
-        precoFinal = Double.parseDouble(preco.getText().toString());
-        cep = (EditText)findViewById(R.id.CEP);
+        precoFinal = 0.00;//Double.parseDouble(preco.getText().toString());
+        //cep.setText("35500-000");//(EditText)findViewById(R.id.CEP);
         rua = (EditText)findViewById(R.id.Rua);
         numero = (EditText)findViewById(R.id.Numero);
-        numRua = Integer.parseInt(numero.getText().toString());
+        numRua = 0;//Integer.parseInt(numero.getText().toString());
         bairro = (EditText)findViewById(R.id.Bairro);
         cidade = (EditText)findViewById(R.id.Cidade);
         estado = (EditText)findViewById(R.id.Estado);
@@ -58,7 +58,8 @@ public class TelaCadastroEvento extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 eventoDAO = new EventoDAO(context);
-                evento = new Evento(nomeEvento.getText().toString(), data.getText().toString(), precoFinal, rua.getText().toString(), cep.getText().toString(), numRua, bairro.getText().toString(), cidade.getText().toString(), estado.getText().toString(), pais.getText().toString());
+                evento = new Evento(nomeEvento.getText().toString(), data.getText().toString(), precoFinal, rua.getText().toString(), /*cep.getText().toString()*/"35500-000",
+                        numRua, bairro.getText().toString(), cidade.getText().toString(), estado.getText().toString(), pais.getText().toString());
                 eventoDAO.inserirEvento(evento);
             }
         });
