@@ -67,5 +67,7 @@ public class TelaCadastroEvento extends AppCompatActivity {
             }
         });
 
+        nomeEvento.requestFocus();
+
     }
 }

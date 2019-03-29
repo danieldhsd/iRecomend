@@ -57,7 +57,7 @@ public class TelaCarregaEvento extends AppCompatActivity {
         this.deslikesCarregamentoEvento = this.findViewById(R.id.deslikesCarregamentoEvento);
 
         eventoDAO = new EventoDAO(this);
-        evento = eventoDAO.selecionaEventoById(1);
+        evento = eventoDAO.selecionaEventoById(10);
         //this.teste();
 
         this.nomeCarregamentoEvento.setText(evento.getNome());

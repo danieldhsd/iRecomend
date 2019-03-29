@@ -3,7 +3,8 @@
     package="com.example.irecomend">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.PERSISTENT_ACTIVITY"/>
+    <uses-permission android:name="android.permission.PERSISTENT_ACTIVITY"/>7
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
 
     <application
         android:allowBackup="true"

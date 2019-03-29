@@ -90,7 +90,7 @@ public class ClienteDAO {
             cliente.setNome(cursor.getString(1));
             cliente.setSobrenome(cursor.getString(2));
             cliente.setEmail(cursor.getString(3));
-            cliente.setSobrenome(cursor.getString(4));
+            cliente.setSenha(cursor.getString(4));
         }
         return cliente;
     }

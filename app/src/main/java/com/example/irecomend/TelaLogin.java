@@ -78,7 +78,7 @@ public class TelaLogin extends AppCompatActivity {
         Cliente banco = new Cliente();
         banco = cDao.selecionaClienteByEmail(cliente.getEmail());
 
-        if(banco.getSenha()==cliente.getSenha()) return true;
+        if(banco.getSenha().equals(cliente.getSenha())) return true;
         return false;
     }
 
