@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:contentDescription="@string/logo"
         app:srcCompat="@drawable/logo" />
 
     <EditText
@@ -20,16 +19,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:minWidth="330sp"
         android:inputType="textAutoComplete"
-        android:minWidth="330sp" />
+        android:autofillHints="Nome de usuario"/>
 
     <EditText
         android:id="@+id/edittext_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:inputType="textPassword"
-        android:minWidth="330sp" />
+        android:minWidth="330sp"
+        android:inputType="textPassword"/>
 
 
     <Button

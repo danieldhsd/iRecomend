@@ -108,7 +108,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Número"
-        android:inputType="text"
+        android:inputType="number"
         android:minWidth="330sp"
         app:layout_constraintBottom_toTopOf="@+id/Bairro"
         app:layout_constraintEnd_toEndOf="parent"

@@ -44,11 +44,11 @@ public class TelaCadastroEvento extends AppCompatActivity {
         nomeEvento = (EditText)findViewById(R.id.nomeEvento);
         data = (EditText)findViewById(R.id.DataHoraEvento);
         preco = (EditText)findViewById(R.id.Preco);
-        precoFinal = 0.00;//Double.parseDouble(preco.getText().toString());
+        precoFinal = 30.00;//Double.parseDouble(preco.getText().toString());
         //cep.setText("35500-000");//(EditText)findViewById(R.id.CEP);
         rua = (EditText)findViewById(R.id.Rua);
         numero = (EditText)findViewById(R.id.Numero);
-        numRua = 0;//Integer.parseInt(numero.getText().toString());
+        numRua = 10;// Integer.valueOf(numero.getText().toString());
         bairro = (EditText)findViewById(R.id.Bairro);
         cidade = (EditText)findViewById(R.id.Cidade);
         estado = (EditText)findViewById(R.id.Estado);

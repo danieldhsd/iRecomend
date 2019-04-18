@@ -6,40 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".TelaCarregaEvento">
 
-    <TextView
-        android:id="@+id/nomeCarregamentoEventos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/nome"
-        android:minWidth="330sp"
-        android:textSize="20sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/datahoraCarregamentoEventos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/data_e_hora"
-        android:minWidth="330sp"
-        android:text=""
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216" />
+
+        <TextView
+            android:id="@+id/nomeCarregamentoEventos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/nome"
+            android:minWidth="330sp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/datahoraCarregamentoEventos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0"
+            android:hint="@string/data_e_hora"
+            android:minWidth="330sp"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
 
     <TextView
         android:id="@+id/enderecoCarregamentoEvento"
