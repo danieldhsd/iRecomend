@@ -1,5 +1,6 @@
 package com.example.irecomend;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.example.irecomend.connection.Conexao;
@@ -25,12 +27,12 @@ public class TelaCadastroCliente extends AppCompatActivity {
     private ClienteDAO clienteDAO;
 
 
-    EditText nomeEditText;
-    EditText sobrenomeEditText;
-    EditText emailEditText;
-    EditText senhaEditText;
-    EditText confirmarEdittext;
-    Button cadastrar;
+    private EditText nomeEditText;
+    private EditText sobrenomeEditText;
+    private EditText emailEditText;
+    private EditText senhaEditText;
+    private EditText confirmarEdittext;
+    private Button cadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,11 +104,13 @@ public class TelaCadastroCliente extends AppCompatActivity {
             clienteDAO = new ClienteDAO(this);
             cliente = new Cliente(this.nomeEditText.getText().toString(),this.sobrenomeEditText.getText().toString(),this.emailEditText.getText().toString(),this.senhaEditText.getText().toString());
             clienteDAO.inserirCliente(cliente);
-            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+            /*AlertDialog.Builder dlg = new AlertDialog.Builder(this);
             dlg.setTitle("Aviso");
             dlg.setMessage("Cliente Cadastrado");
             dlg.setNeutralButton("OK",null);
-            dlg.show();
+            dlg.show();*/
+            Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(TelaCadastroCliente.this, MapsActivity.class));
         }
     }
     /*VERIFICA SE O CAMPO ESTÁ VAZIO*/

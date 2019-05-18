@@ -16,11 +16,11 @@ import com.example.irecomend.model.dao.ClienteDAO;
 
 public class TelaLogin extends AppCompatActivity {
 
-    EditText mTextUsuario;
-    EditText mTextSenha;
-    Button mButtonLogin;
-    TextView mTextViewRegistrar;
-    Conexao db;
+    private EditText mTextUsuario;
+    private EditText mTextSenha;
+    private Button mButtonLogin;
+    private TextView mTextViewRegistrar;
+    private Conexao db;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -55,16 +55,16 @@ public class TelaLogin extends AppCompatActivity {
 
                 login.setSenha(senhaDeLogin);
                 login.setEmail(emailDeLogin);
-        
-                boolean res = chamaBanco(login);
 
-                if(res==true)
-                {
+                if(chamaBanco(login)){
                     Toast.makeText(TelaLogin.this,"Login feito com sucesso!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(TelaLogin.this, MapsActivity.class));
                 }
-                else
-                {
-                    Toast.makeText(TelaLogin.this,"Login não foi feito!", Toast.LENGTH_SHORT).show();
+                else{
+                    Toast.makeText(TelaLogin.this,"Erro ao fazer login!", Toast.LENGTH_SHORT).show();
+                    mTextUsuario.setText("");
+                    mTextSenha.setText("");
+                    mTextUsuario.requestFocus();
                 }
 
             }
@@ -78,8 +78,12 @@ public class TelaLogin extends AppCompatActivity {
         Cliente banco = new Cliente();
         banco = cDao.selecionaClienteByEmail(cliente.getEmail());
 
-        if(banco.getSenha().equals(cliente.getSenha())) return true;
-        return false;
+        if(banco == null)
+            return false;
+        if(banco.getSenha().equals(cliente.getSenha()))
+            return true;
+        else
+            return false;
     }
 
 }

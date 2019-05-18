@@ -16,7 +16,6 @@
     <string name="carregamento_de_eventos">Carregamento de Eventos</string>
     <string name="login">Login</string>
     <string name="usuario">Email</string>
-    <string name="senha">Senha</string>
     <string name="nao_registrado">Não possui conta?</string>
     <string name="registrar">Registrar</string>
     <string name="nome">Nome</string>
@@ -33,4 +32,11 @@
     <string name="title_menu_cadastrar">Cadastrar</string>
     <string name="title_menu_cancelar">Cancelar</string>
     <string name="logo">Logo</string>
+    <string name="mapa">Mapa</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="sobrenome">Sobrenome</string>
+    <string name="e_mail">E-mail</string>
+    <string name="confirmar_senha">Confirmar Senha</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="senha">senha</string>
 </resources>

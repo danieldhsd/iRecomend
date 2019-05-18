@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnCadastroCliente = (Button) this.findViewById(R.id.btnCadastroCliente);
         Button btnCriacaoEvento = (Button) this.findViewById(R.id.btnCriacaoEvento);
         Button btnCarregamentoEvento = (Button) this.findViewById(R.id.btnCarregamentoEvento);
+        Button btnMapa = (Button) this.findViewById(R.id.btnMaps);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), TelaCarregaEvento.class));
+            }
+        });
+        btnMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MapsActivity.class));
             }
         });
     }

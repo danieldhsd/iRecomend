@@ -91,8 +91,10 @@ public class ClienteDAO {
             cliente.setSobrenome(cursor.getString(2));
             cliente.setEmail(cursor.getString(3));
             cliente.setSenha(cursor.getString(4));
+            return cliente;
         }
-        return cliente;
+        return null;
+
     }
 //    public void criaTabela(){
 //
