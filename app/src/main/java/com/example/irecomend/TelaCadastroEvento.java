@@ -62,7 +62,7 @@ public class TelaCadastroEvento extends AppCompatActivity {
                 evento = new Evento(nomeEvento.getText().toString(), data.getText().toString(), precoFinal, rua.getText().toString(), /*cep.getText().toString()*/"35500-000",
                         numRua, bairro.getText().toString(), cidade.getText().toString(), estado.getText().toString(), pais.getText().toString());
                 if ( eventoDAO.inserirEvento(evento) > 0){
-                    Toast.makeText(context, "Evento Inserido!", Toast.LENGTH_LONG);
+                    Toast.makeText(context, "Evento Cadastrado!", Toast.LENGTH_LONG);
                 }
             }
         });

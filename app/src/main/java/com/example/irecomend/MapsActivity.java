@@ -9,7 +9,10 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -20,6 +23,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -47,21 +52,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         LatLng itauna = new LatLng(-20.056512,  -44.572482);
         mMap.addMarker(new MarkerOptions().position(itauna).title("Marcar em Itauna"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(itauna));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(itauna));
+
+
+        CameraPosition update = new CameraPosition(itauna, 15, 0, 0);
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(update), 3000, null);
 
         mMap.setOnMapClickListener( new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick (LatLng latLng) {
                 //função clear
-                mMap.clear();
+                //mMap.clear();
                 MarkerOptions options = new MarkerOptions() ;
                 options.position( latLng ) ;
-                mMap .addMarker( options ) ;
+                mMap.addMarker( options ) ;
                 startActivity(new Intent(MapsActivity.this, TelaCadastroEvento.class));
                 //mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("Marker"));
             }
         });
     }
+
 
 
 }
