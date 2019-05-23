@@ -8,14 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.irecomend.connection.Conexao;
 import com.example.irecomend.model.bean.Evento;
 import com.example.irecomend.model.dao.EventoDAO;
+import com.google.android.gms.maps.model.Marker;
 
 public class TelaCadastroEvento extends AppCompatActivity {
 
     private Evento evento;
     private EventoDAO eventoDAO;
+    public static boolean eventoCriado;
+    public MapsActivity mapsActivity;
 
     EditText nomeEvento;
     EditText data;
@@ -40,6 +42,7 @@ public class TelaCadastroEvento extends AppCompatActivity {
         setContentView(R.layout.activity_tela_cadastro_evento);
 
         context = this.getApplicationContext();
+        eventoCriado = false;
 
         nomeEvento = (EditText)findViewById(R.id.nomeEvento);
         data = (EditText)findViewById(R.id.DataHoraEvento);
@@ -62,7 +65,8 @@ public class TelaCadastroEvento extends AppCompatActivity {
                 evento = new Evento(nomeEvento.getText().toString(), data.getText().toString(), precoFinal, rua.getText().toString(), /*cep.getText().toString()*/"35500-000",
                         numRua, bairro.getText().toString(), cidade.getText().toString(), estado.getText().toString(), pais.getText().toString());
                 if ( eventoDAO.inserirEvento(evento) > 0){
-                    Toast.makeText(context, "Evento Cadastrado!", Toast.LENGTH_LONG);
+                    Toast.makeText(context, "Evento Cadastrado!", Toast.LENGTH_LONG).show();
+                    eventoCriado = true;
                 }
             }
         });

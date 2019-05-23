@@ -3,10 +3,9 @@ package com.example.irecomend;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.EditText;
@@ -16,19 +15,17 @@ import android.widget.Toast;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private boolean eventoCriado = false;
 
 
     private static final String TAG = "MapsActivity";
@@ -98,9 +95,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         if (mLocationPermissionsGranted) {
-            // Add a marker in Sydney and move the camera
 
-            LatLng itauna = new LatLng(-20.056512,  -44.572482);
+            final LatLng itauna = new LatLng(-20.056512,  -44.572482);
             mMap.addMarker(new MarkerOptions().position(itauna).title("Marcar em Itauna"));
             //mMap.moveCamera(CameraUpdateFactory.newLatLng(itauna));
 
@@ -111,13 +107,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setOnMapClickListener( new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick (LatLng latLng) {
-                    //função clear
-                    //mMap.clear();
+
+
                     MarkerOptions options = new MarkerOptions() ;
                     options.position( latLng ) ;
+                    Marker marker = mMap.addMarker(options);
 
+                    mMap.addMarker( options );
                     startActivity(new Intent(MapsActivity.this, TelaCadastroEvento.class));
-                    mMap.addMarker( options ); ;
+                    if(!TelaCadastroEvento.eventoCriado){
+                        marker.remove();
+                    }
                 }
             });
         }
